@@ -1,0 +1,107 @@
+.hidden {
+    display: none !important;
+}
+
+body {
+    background-color: #F8F9FA;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 1rem 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 25%));
+}
+
+li {
+    margin: .25rem 0rem;
+    font-size: 1.2rem;
+    padding-left: 0.2rem;
+}
+
+.title {
+    background-color: #343A3F;
+    color: #F8F9FA;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.title > h4 {
+    padding-top: 0.35rem;
+    font-size: 1rem;
+}
+
+.input-box {
+    margin: 2rem auto;
+    width: 80%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.input-box > input,
+.input-box > button {
+    font-size: 1.6rem;
+}
+
+.input-box > input {
+    width: 70%;
+}
+
+.input-box > button {
+    width: 15%;
+    max-width: 3rem;
+    margin-left: .25rem;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shuffled-list {
+    list-style-type: decimal;
+    border-left: 5px solid #28A745;
+}
+
+.green-button {
+    background-color: #28A745;
+}
+
+.green-button:hover {
+    background-color: #39f164;
+    transition: 0.2s;
+}
+
+.shuffle-button {
+    background-color: #a8dadc;
+}
+
+.shuffle-button:hover {
+    background-color: #c1f8fa;
+    transition: 0.2s;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-around;
+}
