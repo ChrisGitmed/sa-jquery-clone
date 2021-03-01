@@ -1,4 +1,7 @@
-const $day = $("h4")
+const $day = $("h4");
+const $input = $("input");
+const $addButton = $("button.green-button");
+const $shuffleButton = $("button.shuffle-button");
 
 const date = new Date();
 const day = getDayInString(date.getDay());
