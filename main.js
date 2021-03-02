@@ -1,12 +1,16 @@
-const $day = $("h4");
-const $input = $("input");
-const $addButton = $("button.green-button");
-const $shuffleButton = $("button.shuffle-button");
+const list = [];
 
+const $day = $("h4");
 const date = new Date();
 const day = getDayInString(date.getDay());
 const month = getMonthInString(date.getMonth())
 $day.html(`${day}, ${month} ${date.getDate()}`);
+
+const $input = $('input');
+$("#add-button").click( () => {
+    list.push($input.val());
+    $input.val('')
+})
 
 function getDayInString(dayInNum) {
     switch(dayInNum) {
