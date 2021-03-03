@@ -6,11 +6,18 @@ const day = getDayInString(date.getDay());
 const month = getMonthInString(date.getMonth())
 $day.html(`${day}, ${month} ${date.getDate()}`);
 
+const $list = $("ul.list");
+
 const $input = $('input');
 $("#add-button").click( () => {
     list.push($input.val());
-    $input.val('')
+    $list.append(`<li>${$input.val()}</li>`)
+    if($list.is(":hidden")) {
+        $list.show();
+    }
 })
+
+$list.hide();
 
 function getDayInString(dayInNum) {
     switch(dayInNum) {
@@ -18,15 +25,15 @@ function getDayInString(dayInNum) {
             return 'Sunday';
         case 1:
             return 'Monday';
-        case 2: 
+        case 2:
             return 'Tuesday';
-        case 3: 
+        case 3:
             return 'Wednesday';
         case 4:
             return 'Thursday';
         case 5:
             return 'Friday';
-        case 6: 
+        case 6:
             return 'Saturday';
     }
 }
