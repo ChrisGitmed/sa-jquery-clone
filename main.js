@@ -1,4 +1,6 @@
 $(document).ready( () => {
+    const names = [];
+
     const $todaysDate = $("h4");
     const $input = $('input');
     const $list = $("ul.list");
@@ -16,6 +18,13 @@ $(document).ready( () => {
     $input.keypress(() => {
         if (event.key === 'Enter') {
             addNameToList();
+        }
+    })
+
+    $('button.shuffle-button').click(() => {
+        $shuffledList.show();
+        for (let i = 0; i < names.length; i++) {
+            console.log('name: ', names[i]);
         }
     })
 
@@ -68,6 +77,7 @@ $(document).ready( () => {
     }
 
     function addNameToList() {
+        names.push($input.val());
         $list.append(`<li>${$input.val()}</li>`)
         $input.val('');
         if ($list.is(":hidden")) {
