@@ -2,7 +2,7 @@ $(document).ready(() => {
     const names = [];
 
     const $todaysDate = $("h4");
-    const $input = $('input');
+    const $input = $("input");
     const $list = $("ul.list");
     const $shuffledList = $("ul.shuffled-list");
 
@@ -12,7 +12,7 @@ $(document).ready(() => {
     $todaysDate.html(`${day}, ${month} ${date.getDate()}`);
 
     $input.keypress(() => {
-        if (event.key === 'Enter') {
+        if (event.key === "Enter") {
             addNameToList();
         }
     })
@@ -21,7 +21,7 @@ $(document).ready(() => {
         addNameToList();
     })
 
-    $('button.shuffle-button').click(() => {
+    $("button.shuffle-button").click(() => {
         $shuffledList.empty();
         const shuffledNames = shuffleArray(names);
         for (let i = 0; i < shuffledNames.length; i++) {
