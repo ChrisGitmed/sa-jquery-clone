@@ -23,7 +23,6 @@ $("#add-button").click( () => {
 })
 
 $input.keypress( () => {
-    console.log('event.key: ', event.key)
     if (event.key === 'Enter') {
         list.push($input.val());
         $list.append(`<li>${$input.val()}</li>`)
