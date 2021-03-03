@@ -1,14 +1,16 @@
 const list = [];
 
 const $day = $("h4");
+const $input = $('input');
+const $list = $("ul.list");
+
+$list.hide();
+
 const date = new Date();
 const day = getDayInString(date.getDay());
 const month = getMonthInString(date.getMonth())
 $day.html(`${day}, ${month} ${date.getDate()}`);
 
-const $list = $("ul.list");
-
-const $input = $('input');
 $("#add-button").click( () => {
     list.push($input.val());
     $list.append(`<li>${$input.val()}</li>`)
@@ -16,8 +18,6 @@ $("#add-button").click( () => {
         $list.show();
     }
 })
-
-$list.hide();
 
 function getDayInString(dayInNum) {
     switch(dayInNum) {
