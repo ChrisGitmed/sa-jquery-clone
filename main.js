@@ -3,8 +3,10 @@ const list = [];
 const $day = $("h4");
 const $input = $('input');
 const $list = $("ul.list");
+const $shuffledList = $("ul.shuffled-list");
 
 $list.hide();
+$shuffledList.hide();
 
 const date = new Date();
 const day = getDayInString(date.getDay());
