@@ -17,7 +17,7 @@ $(document).ready(() => {
         }
     })
 
-    $("#add-button").click(() => {
+    $("button.add-button").click(() => {
         addNameToList();
     })
 

@@ -72,11 +72,11 @@ li {
     border-left: 5px solid #28A745;
 }
 
-#add-button {
+.add-button {
     background-color: #28A745;
 }
 
-#add-button:hover {
+.add-button:hover {
     background-color: #39f164;
     transition: 0.2s;
 }
