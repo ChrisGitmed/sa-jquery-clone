@@ -1,4 +1,4 @@
-$(document).ready( () => {
+$(document).ready(() => {
     const names = [];
 
     const $todaysDate = $("h4");
@@ -11,14 +11,14 @@ $(document).ready( () => {
     const month = getMonthInString(date.getMonth())
     $todaysDate.html(`${day}, ${month} ${date.getDate()}`);
 
-    $("#add-button").click(() => {
-        addNameToList();
-    })
-
     $input.keypress(() => {
         if (event.key === 'Enter') {
             addNameToList();
         }
+    })
+
+    $("#add-button").click(() => {
+        addNameToList();
     })
 
     $('button.shuffle-button').click(() => {
