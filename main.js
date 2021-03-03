@@ -16,11 +16,23 @@ $day.html(`${day}, ${month} ${date.getDate()}`);
 $("#add-button").click( () => {
     list.push($input.val());
     $list.append(`<li>${$input.val()}</li>`)
+    $input.val('')
     if($list.is(":hidden")) {
         $list.show();
     }
 })
 
+$input.keypress( () => {
+    console.log('event.key: ', event.key)
+    if (event.key === 'Enter') {
+        list.push($input.val());
+        $list.append(`<li>${$input.val()}</li>`)
+        $input.val('');
+        if ($list.is(":hidden")) {
+            $list.show();
+        }
+    }
+})
 function getDayInString(dayInNum) {
     switch(dayInNum) {
         case 0:
