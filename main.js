@@ -14,24 +14,15 @@ const month = getMonthInString(date.getMonth())
 $day.html(`${day}, ${month} ${date.getDate()}`);
 
 $("#add-button").click( () => {
-    list.push($input.val());
-    $list.append(`<li>${$input.val()}</li>`)
-    $input.val('')
-    if($list.is(":hidden")) {
-        $list.show();
-    }
+    addNameToList();
 })
 
 $input.keypress( () => {
     if (event.key === 'Enter') {
-        list.push($input.val());
-        $list.append(`<li>${$input.val()}</li>`)
-        $input.val('');
-        if ($list.is(":hidden")) {
-            $list.show();
-        }
+        addNameToList();
     }
 })
+
 function getDayInString(dayInNum) {
     switch(dayInNum) {
         case 0:
@@ -77,5 +68,14 @@ function getMonthInString(monthInNum) {
             return 'Nov';
         case 11:
             return 'Dec';
+    }
+}
+
+function addNameToList() {
+    list.push($input.val());
+    $list.append(`<li>${$input.val()}</li>`)
+    $input.val('');
+    if ($list.is(":hidden")) {
+        $list.show();
     }
 }
