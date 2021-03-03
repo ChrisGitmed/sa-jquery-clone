@@ -1,6 +1,8 @@
-$(document).ready( () => {
+$(document).ready(() => {
+    const names = [];
+
     const $todaysDate = $("h4");
-    const $input = $('input');
+    const $input = $("input");
     const $list = $("ul.list");
     const $shuffledList = $("ul.shuffled-list");
 
@@ -9,14 +11,23 @@ $(document).ready( () => {
     const month = getMonthInString(date.getMonth())
     $todaysDate.html(`${day}, ${month} ${date.getDate()}`);
 
-    $("#add-button").click(() => {
+    $input.keypress(() => {
+        if (event.key === "Enter") {
+            addNameToList();
+        }
+    })
+
+    $("button.add-button").click(() => {
         addNameToList();
     })
 
-    $input.keypress(() => {
-        if (event.key === 'Enter') {
-            addNameToList();
+    $("button.shuffle-button").click(() => {
+        $shuffledList.empty();
+        const shuffledNames = shuffleArray(names);
+        for (let i = 0; i < shuffledNames.length; i++) {
+            $shuffledList.append(`<li>${shuffledNames[i]}</li>`);
         }
+        $shuffledList.show();
     })
 
     function getDayInString(dayInNum) {
@@ -68,11 +79,32 @@ $(document).ready( () => {
     }
 
     function addNameToList() {
-        $list.append(`<li>${$input.val()}</li>`)
+        names.push($input.val());
+        const listItem = `<li>${$input.val()}</li>`;
+        $list.append(listItem);
+        if (!$shuffledList.is(":hidden")) {
+            $shuffledList.append(listItem);
+        }
         $input.val('');
         if ($list.is(":hidden")) {
             $list.show();
         }
+    }
+
+    function shuffleArray(array) {
+        const tempArray = [];
+        for (let i = 0; i < array.length; i++) {
+            tempArray.push(array[i]);
+        }
+        let currentIndex = tempArray.length, temporaryValue, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = tempArray[currentIndex];
+            tempArray[currentIndex] = tempArray[randomIndex];
+            tempArray[randomIndex] = temporaryValue;
+        }
+        return tempArray;
     }
 
 })
