@@ -1,7 +1,5 @@
 $(document).ready( () => {
-    const list = [];
-
-    const $day = $("h4");
+    const $todaysDate = $("h4");
     const $input = $('input');
     const $list = $("ul.list");
     const $shuffledList = $("ul.shuffled-list");
@@ -12,7 +10,7 @@ $(document).ready( () => {
     const date = new Date();
     const day = getDayInString(date.getDay());
     const month = getMonthInString(date.getMonth())
-    $day.html(`${day}, ${month} ${date.getDate()}`);
+    $todaysDate.html(`${day}, ${month} ${date.getDate()}`);
 
     $("#add-button").click(() => {
         addNameToList();
@@ -73,7 +71,6 @@ $(document).ready( () => {
     }
 
     function addNameToList() {
-        list.push($input.val());
         $list.append(`<li>${$input.val()}</li>`)
         $input.val('');
         if ($list.is(":hidden")) {
