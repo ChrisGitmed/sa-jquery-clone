@@ -22,11 +22,12 @@ $(document).ready( () => {
     })
 
     $('button.shuffle-button').click(() => {
-        $shuffledList.show();
+        $shuffledList.empty();
         const shuffledNames = shuffleArray(names);
         for (let i = 0; i < shuffledNames.length; i++) {
             $shuffledList.append(`<li>${shuffledNames[i]}</li>`);
         }
+        $shuffledList.show();
     })
 
     function getDayInString(dayInNum) {
