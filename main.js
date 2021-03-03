@@ -4,9 +4,6 @@ $(document).ready( () => {
     const $list = $("ul.list");
     const $shuffledList = $("ul.shuffled-list");
 
-    $list.hide();
-    $shuffledList.hide();
-
     const date = new Date();
     const day = getDayInString(date.getDay());
     const month = getMonthInString(date.getMonth())
