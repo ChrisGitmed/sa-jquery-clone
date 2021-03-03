@@ -23,9 +23,7 @@ $(document).ready( () => {
 
     $('button.shuffle-button').click(() => {
         $shuffledList.show();
-        for (let i = 0; i < names.length; i++) {
-            console.log('name: ', names[i]);
-        }
+        const shuffledNames = shuffleArray(names);
     })
 
     function getDayInString(dayInNum) {
@@ -83,6 +81,22 @@ $(document).ready( () => {
         if ($list.is(":hidden")) {
             $list.show();
         }
+    }
+
+    function shuffleArray(array) {
+        const tempArray = [];
+        for (let i = 0; i < array.length; i++) {
+            tempArray.push(array[i]);
+        }
+        let currentIndex = tempArray.length, temporaryValue, randomIndex;
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = tempArray[currentIndex];
+            tempArray[currentIndex] = tempArray[randomIndex];
+            tempArray[randomIndex] = temporaryValue;
+        }
+        return tempArray;
     }
 
 })
