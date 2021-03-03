@@ -80,7 +80,11 @@ $(document).ready(() => {
 
     function addNameToList() {
         names.push($input.val());
-        $list.append(`<li>${$input.val()}</li>`)
+        const listItem = `<li>${$input.val()}</li>`;
+        $list.append(listItem);
+        if (!$shuffledList.is(":hidden")) {
+            $shuffledList.append(listItem);
+        }
         $input.val('');
         if ($list.is(":hidden")) {
             $list.show();
